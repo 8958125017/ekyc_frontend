@@ -1,0 +1,200 @@
+<div id="myLandRecord" *ngIf="!kycResultStatus">
+    <div class="main-content">
+       <div class="container-fluid">
+          <div class="row mb-4">
+             <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="civil-issuing">
+                   <div class="titleHeadissue">
+                      <i class="material-icons mr-2" style="float:left;">assignment_turned_in</i>
+                      Fetch eKYC
+                   </div>
+                </div>
+             </div>
+             <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="titleHead float-left">FETCH KYC DETAILS - SEARCH CRITERIA</div>
+             </div>
+          </div>
+ 
+          <div class="card">
+            <form [formGroup]="ekycForm" (ngSubmit)="searchKYC()">
+             <div class="card-body">
+                <div class="row mb-2">
+                   <div class="col-md-2">
+                      Goverment ID 1
+                   </div>
+                   <div class="col-md-10">
+                      <input type="text" class="form-control" placeholder="Provide Details" formControlName="govt_id_1">
+                   </div>
+               </div>
+               <div class="row mb-2">
+                   <div class="col-md-2">
+                      Goverment ID 2
+                   </div>
+                   <div class="col-md-10">
+                      <input type="text" class="form-control" placeholder="Provide Details" formControlName="govt_id_2">
+                   </div>
+               </div>
+               <div class="row mb-2">
+                   <div class="col-md-2">
+                      Goverment ID 3
+                   </div>
+                   <div class="col-md-10">
+                      <input type="text" class="form-control" placeholder="Provide Details" formControlName="govt_id_3">
+                   </div>
+               </div>
+               <div class="row mb-4">
+                   <div class="col-md-2">
+                      Goverment ID 4
+                   </div>
+                   <div class="col-md-10">
+                      <input type="text" class="form-control" placeholder="Provide Details" formControlName="govt_id_4">
+                   </div>
+               </div>
+               <hr>
+               <div class="form-contaner">
+                   <div class="row mb-2 mt-2">
+                         <div class="col-md-4 kycDetails">
+                               <label>First Name</label>
+                               <input type="text" class="form-control" placeholder="Enter First Name" formControlName="first_name">
+                         </div>
+                         <div class="col-md-4 kycDetails">
+                               <label>Middle Name</label>
+                               <input type="text" class="form-control" placeholder="Enter Middle Name" formControlName="m_name">
+                         </div>
+                         <div class="col-md-4 kycDetails">
+                               <label>Last Name</label>
+                               <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="l_name">
+                         </div>
+                     </div>
+                   <div class="row mb-2 mt-2">
+                         <div class="col-md-4 kycDetails">
+                               <label>Father Name</label>
+                               <input type="text" class="form-control" placeholder="Enter Father Name" formControlName="father_name">
+                         </div>
+                         <div class="col-md-4 kycDetails">
+                               <label>Mother Name</label>
+                               <input type="text" class="form-control" placeholder="Enter Mother Name" formControlName="mother_name">
+                         </div>
+                         <div class="col-md-4 kycDetails">
+                               <label>Mobile</label>
+                              <input type="text" class="form-control" placeholder="Enter Mobile Number" formControlName="mob_num">
+                              
+                         </div>
+                     </div>
+                     <div class="row mb-2 mt-2">
+                         <div class="col-md-4 kycDetails">
+                               <label>Address</label>
+                              <input type="text" class="form-control" placeholder="Enter Country" formControlName="curr_add">
+                         </div>
+                         <div class="col-md-4 kycDetails">
+                               <label>Country</label>
+                              <input type="text" class="form-control" placeholder="Enter Country" formControlName="country">
+                         </div>
+                         <div class="col-md-4 kycDetails">
+                               <label>State</label>
+                               <input type="text" class="form-control" placeholder="Enter State" formControlName="state">
+                         </div>
+                       
+                     </div>
+                     <div class="row mb-2 mt-2">
+                         
+                         <div class="col-md-4 kycDetails">
+                               <label>Postal Code</label>
+                               <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="postal_code">
+                         </div>
+                     </div>
+                     <div class="row mb-2 mt-5">
+                         <div class="col-md-12 text-center">
+                            <button class="btn btn-primary" style="width: 127px;">FETCH  DETAILS</button>
+                        </div>
+                 </div>
+               </div>
+              
+             </div>
+          </form>
+          </div>
+       </div>
+    </div>
+ </div>
+
+ <div >
+  <div class="main-content" *ngIf="kycResultStatus">
+    <div class="container-fluid">
+      <div class="row mb-4">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+          <div class="civil-issuing">
+            <div class="titleHeadissue">
+              <i class="material-icons mr-2" style="float:left;">assignment_turned_in</i>
+              Fetch KYC Results
+               <i class="material-icons mr-2" style="float:right;" (click)="back()">assignment_return</i>
+              Back
+            </div>
+           <!--  <div class="titleHeadissue">
+             
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card card-stats fetchBox">
+                <div class="row" *ngFor="let item of kycResult">
+                  <div class="col-md-6">
+                    <p class="nokia-t">{{businessName}}</p>
+                    <p>
+                      <i class="material-icons mr-1 star-icon">star</i>
+                      <i class="material-icons mr-1 star-icon">star</i>
+                      <i class="material-icons mr-1 star-icon">star</i>
+                      <i class="material-icons star-icon">star_half</i>
+                    </p>
+                    <p class="rating-Stars">
+                      Rating 4 Stars
+                    </p>
+                    <p class="trustworthy">
+                      Trustworthy
+                    </p>
+                  </div>
+                  <div class="col-md-6">
+                    <p *ngIf="item.govt_id_1">
+                      Government Id {{item.govt_id_1}}<i class="material-icons done-icons">check_circle</i>
+                    </p>
+                     <p class="governId" *ngIf="!item.govt_id_1">
+                      Government Id 1<i class="material-icons ">check_circle</i>
+                    </p>
+                     <p class="governId" *ngIf="item.govt_id_2">
+                        Government Id {{item.govt_id_2}}<i class="material-icons done-icons">check_circle</i>
+                    </p>
+                     <p class="governId" *ngIf="!item.govt_id_2">
+                      Government Id 2<i class="material-icons ">check_circle</i>
+                    </p>
+                     <p class="governId" *ngIf="item.govt_id_3">
+                      Government Id {{item.govt_id_3}}<i class="material-icons done-icons">check_circle</i>
+                    </p>
+                     <p class="governId" *ngIf="!item.govt_id_3">
+                      Government Id 3<i class="material-icons s">check_circle</i>
+                    </p>
+                    <p class="governId" *ngIf="item.govt_id_4">
+                      Government Id {{item.govt_id_4}}<i class="material-icons done-icons">check_circle</i>
+                    </p>
+                     <p class="governId" *ngIf="!item.govt_id_4">
+                      Government Id 4<i class="material-icons ">check_circle</i>
+                    </p>
+                    <p class="trustworthy">
+                     <a class="text-primary" routerLink="/kycdetails/{{item.kycid}}">
+                                             Know more
+                                              </a> 
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>           
+    
+              </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

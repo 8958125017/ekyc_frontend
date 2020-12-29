@@ -1,0 +1,133 @@
+<div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5 col-lg-5 col-sm-5">
+            <div class="titleHead float-left">DASHBOARD</div>
+          </div>
+          <div class="col-md-7col-lg-7 col-sm-7">
+            <button class="btn float-right mat-raised-button" routerLink='/addekyc' ><i class="material-icons mr-2">assignment_turned_in</i>ADD NEW eKYC</button>
+          </div>
+        </div>
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="card card-stats card_one"> 
+                      <div class="card-header card-header-icon">
+                       <p class="card-title float-right">COMPANY’S <br>                              ONBOARDED</p>
+                          <h3 class="cardnum float-right">{{allBusinessCount?allBusinessCount:0}} </h3>
+                      </div>
+                      <div class="oval">
+                           <i class="material-icons done-icons">done</i>
+                           <span class="very">Verified</span>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card card-stats card_one">
+                      <div class="card-header card-header-success card-header-icon">
+                                             <p class="card-title float-right">TOTAL <br>
+                              UPLOADED</p>
+                          <h3 class="cardnum float-right">{{allKycCount?allKycCount:0}} </h3>
+                      </div>
+                      <div class="oval">
+                           <i class="material-icons done-icons">done</i>
+                           <span class="very">Verified</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card card-stats card_one">
+                      <div class="card-header card-header-danger card-header-icon">
+<!--                          
+                          <p class="mb-4">
+                                <span class="year float-right">
+                                        <select>
+                                            <option value="volvo">2009</option>
+                                            <option value="saab">2010</option>
+                                            <option value="opel">2011</option>
+                                            <option value="audi">2012</option>
+                                            <option value="audi">2013</option>
+                                            <option value="audi">2014</option>
+                                            <option value="audi">2015</option>
+                                            <option value="audi">2016</option>
+                                            <option value="audi">2017</option>
+                                        </select>
+                                    </span>
+                          </p> -->
+                          <p class="card-title float-right">TOTAL KYC’s</p>
+                          <h3 class="cardnum float-right">{{allBusinessKycCount?allBusinessKycCount:0}} </h3>
+                      </div>
+                      <div class="oval">
+                           <i class="material-icons done-icons">done</i>
+                           <span class="very">Verified</span>
+                      </div>
+                   </div>
+              </div>
+           
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="titleHead float-left">LAST UPLOADED DOCUMENT</div>
+                 <div class="table-responsive">
+                              <table class="table">
+                                  <thead class="">
+                                      <th>
+                                          S.No.
+                                      </th>
+                                      <th>
+                                       KYC Id
+                                      </th>
+                                      <th>
+                                          Customer Name
+                                      </th>
+                                      <th>
+                                         Mobile No.
+                                      </th>
+                                      <th>
+                                          Country
+                                      </th>
+                                      <th>
+                                        State
+                                      </th>
+                                       <th>
+                                        Uploded Date
+                                      </th>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of kycList; let i = index">
+                                          <td>
+                                             {{i+1}}
+                                          </td>
+                                          <td>
+                                             <a class="text-primary" routerLink="/kycdetails/{{item.kycid}}">
+                                              {{item.kycid}} 
+                                              </a>
+                                            
+                                          <!-- </a>             -->
+                                          </td>
+                                          <td>
+                                             {{item.first_name}} {{item.m_name}} {{item.l_name}}
+                                          </td>
+                                          <td>
+                                          {{item.mob_num}} 
+                                          </td>
+                                          <td>
+                                           {{item.country}} 
+                                          </td>
+                                          <td>
+                                            {{item.state}} 
+                                          </td>
+                                           <td>
+                                            {{item.cts | date: 'dd/MM/yyyy'}} 
+                                          </td>
+                                      </tr>
+                                     
+                                  </tbody>
+                              </table>
+                          </div>
+            </div>
+            
+          </div>
+      
+      </div>
+    </div>
+    

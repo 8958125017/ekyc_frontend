@@ -1,0 +1,82 @@
+<div id="myLandRecord">
+   <div class="main-content">
+      <div class="container-fluid">
+         <div class="row mb-4">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+               <div class="civil-issuing">
+                  <div class="titleHeadissue">
+                     <i class="material-icons mr-2" style="float:left;">assignment_turned_in</i>
+                     MY DOCUMENT
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="card">
+            <div class="card-body">
+               <div class="row">
+                  <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table">
+                                  <thead class="">
+                                      <th>
+                                          S.No.
+                                      </th>
+                                      <th>
+                                       KYC Id
+                                      </th>
+                                      <th>
+                                          Customer Name
+                                      </th>
+                                      <th>
+                                         Mobile No.
+                                      </th>
+                                      <th>
+                                          Country
+                                      </th>
+                                      <th>
+                                        State
+                                      </th>
+                                      <th>
+                                        Uploded Date
+                                      </th>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let item of kycList; let i = index">
+                                          <td>
+                                             {{i+1}}
+                                          </td>
+                                          <td>
+                                             <a class="text-primary" routerLink="/kycdetails/{{item.kycid}}">
+                                              {{item.kycid}} 
+                                              </a>
+                                            
+                                          </td>
+                                          <td>
+                                             {{item.first_name}} {{item.m_name}} {{item.l_name}}
+                                          </td>
+                                          <td>
+                                          {{item.mob_num}} 
+                                          </td>
+                                          <td>
+                                           {{item.country}} 
+                                          </td>
+                                          <td>
+                                            {{item.state}} 
+                                          </td>
+                                           <td>
+                                            {{item.cts | date: 'dd/MM/yyyy'}} 
+                                          </td>
+                                      </tr>
+                                     
+                                  </tbody>
+                              </table>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</div>
